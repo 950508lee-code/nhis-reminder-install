@@ -4,32 +4,51 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
-<meta name="theme-color" content="#FFFFFF">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111413" media="(prefers-color-scheme: dark)">
 <title>NHIS 리마인더 설치</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="NHIS 리마인더 설치">
+<meta property="og:description" content="안드로이드는 바로 받고, 아이폰은 TestFlight로 설치합니다.">
+<meta property="og:image" content="https://950508lee-code.github.io/nhis-reminder-install/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://950508lee-code.github.io/nhis-reminder-install/">
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
-  :root { --ink:#191F1D; --sub:#8B9490; --line:#EEF0EF; --chip:#F2F4F3; }
+  :root { --bg:#fff; --ink:#191F1D; --sub:#8B9490; --line:#EEF0EF; --chip:#F2F4F3; --btn:#191F1D; --btn-ink:#fff; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#111413; --ink:#F2F4F3; --sub:#8B9490; --line:#262B29; --chip:#1F2422; --btn:#F2F4F3; --btn-ink:#111413; }
+  }
   * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
-  html,body { margin:0; background:#fff; color:var(--ink); font-family:Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif; -webkit-text-size-adjust:100%; }
+  html,body { margin:0; background:var(--bg); color:var(--ink); font-family:Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif; -webkit-text-size-adjust:100%; }
   main { max-width:480px; margin:0 auto; padding:72px 24px 140px; }
-  .icon { width:96px; height:96px; border-radius:26px; display:block; margin:0 auto 22px; box-shadow:0 10px 30px rgba(25,31,29,.12); }
+  .icon { width:96px; height:96px; border-radius:26px; display:block; margin:0 auto 22px; box-shadow:0 10px 30px rgba(0,0,0,.14); }
   h1 { margin:0; text-align:center; font-size:30px; font-weight:800; letter-spacing:-.03em; line-height:1.2; }
   .sub { margin:8px 0 0; text-align:center; font-size:17px; color:var(--sub); font-weight:500; }
   .steps { margin:56px 0 0; }
   .steps > div { display:flex; align-items:center; gap:16px; padding:20px 0; border-top:1px solid var(--line); font-size:20px; font-weight:600; letter-spacing:-.02em; }
   .steps > div:last-child { border-bottom:1px solid var(--line); }
   .steps b { flex:none; width:32px; height:32px; border-radius:50%; background:var(--chip); color:var(--ink); font-size:15px; font-weight:800; display:flex; align-items:center; justify-content:center; }
-  .cta { position:fixed; left:0; right:0; bottom:0; padding:12px 20px calc(16px + env(safe-area-inset-bottom)); background:linear-gradient(180deg, rgba(255,255,255,0), #fff 40%); }
-  .cta a { display:flex; align-items:center; justify-content:center; max-width:432px; margin:0 auto; height:60px; border-radius:16px; background:var(--ink); color:#fff; text-decoration:none; font-size:19px; font-weight:700; letter-spacing:-.02em; }
+  .steps a { color:var(--ink); text-decoration:underline; text-underline-offset:4px; text-decoration-color:var(--sub); }
+  .qr { margin:56px auto 0; width:240px; padding:16px; background:#fff; border-radius:20px; box-shadow:0 10px 30px rgba(0,0,0,.10); }
+  .qr img { display:block; width:100%; height:auto; }
+  .qr-text { text-align:center; font-size:19px; font-weight:600; margin:22px 0 0; letter-spacing:-.02em; }
+  .qr-sub { text-align:center; font-size:15px; color:var(--sub); margin:6px 0 0; }
+  .cta { position:fixed; left:0; right:0; bottom:0; padding:12px 20px calc(16px + env(safe-area-inset-bottom)); background:linear-gradient(180deg, transparent, var(--bg) 40%); }
+  .cta a { display:flex; align-items:center; justify-content:center; max-width:432px; margin:0 auto; height:60px; border-radius:16px; background:var(--btn); color:var(--btn-ink); text-decoration:none; font-size:19px; font-weight:700; letter-spacing:-.02em; }
   .cta a:active { opacity:.85; }
   .ver { text-align:center; font-size:13px; color:var(--sub); margin:28px 0 0; }
+  [hidden] { display:none !important; }
 </style>
 </head>
 <body>
 <main>
   <img class="icon" src="icon.png" alt="">
   <h1>NHIS 리마인더</h1>
-  <p class="sub">안드로이드용</p>
+  <p class="sub" id="sub">안드로이드용</p>
 
   <div class="steps" id="android">
     <div><b>1</b>다운로드한 파일 열기</div>
@@ -37,29 +56,45 @@
     <div><b>3</b>설치 누르기</div>
   </div>
   <div class="steps" id="ios" hidden>
-    <div><b>1</b>앱스토어에서 TestFlight 설치</div>
+    <div><b>1</b><a href="https://apps.apple.com/kr/app/testflight/id899247664">TestFlight 설치</a>&nbsp;(앱스토어)</div>
     <div><b>2</b>아래 버튼 누르고 "참여"</div>
   </div>
+  <div id="desktop" hidden>
+    <div class="qr"><img src="qr.png" alt="설치 페이지 QR"></div>
+    <p class="qr-text">폰 카메라로 찍으세요</p>
+    <p class="qr-sub">안드로이드·아이폰 모두 됩니다</p>
+  </div>
 
-  <p class="ver">v1.0.0 (85)</p>
+  <p class="ver" id="ver">v1.0.0 (85)</p>
 </main>
 
-<div class="cta">
+<div class="cta" id="cta">
   <a id="cta-android" href="https://wueasumbslbfayumesow.supabase.co/storage/v1/object/public/apk/nhis-reminder-latest.apk" download="nhis-reminder.apk">앱 받기</a>
   <a id="cta-ios" href="#" hidden>아이폰용 받기</a>
 </div>
 <script>
-  // 아이폰·아이패드로 열면 TestFlight 안내, 그 밖에는 안드로이드 APK
+  var APK = 'https://wueasumbslbfayumesow.supabase.co/storage/v1/object/public/apk/nhis-reminder-latest.apk';
   var TESTFLIGHT = 'https://testflight.apple.com/join/R8UW2sNM';
-  var ios = /iPhone|iPad|iPod/.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var ua = navigator.userAgent;
+  var ios = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var android = /Android/.test(ua);
+  var $ = function (id) { return document.getElementById(id); };
   if (ios) {
-    document.getElementById('android').hidden = true;
-    document.getElementById('cta-android').hidden = true;
-    document.querySelector('.sub').textContent = '아이폰용';
-    var b = document.getElementById('cta-ios');
-    if (TESTFLIGHT) { document.getElementById('ios').hidden = false; b.href = TESTFLIGHT; b.hidden = false; }
-    else { document.getElementById('ios').innerHTML = '<div><b>!</b>아이폰용은 준비 중입니다</div>'; document.getElementById('ios').hidden = false; }
+    $('android').hidden = true; $('cta-android').hidden = true;
+    $('sub').textContent = '아이폰용';
+    $('ios').hidden = false; $('cta-ios').href = TESTFLIGHT; $('cta-ios').hidden = false;
+  } else if (!android) {
+    // PC·태블릿: 파일 대신 QR
+    $('android').hidden = true; $('cta').hidden = true;
+    $('sub').textContent = '안드로이드 · 아이폰';
+    $('desktop').hidden = false;
   }
+  // APK 파일의 갱신 날짜를 읽어 보여 준다 — 파일만 바꿔 올려도 날짜가 따라온다
+  if (!ios) fetch(APK, {method: 'HEAD'}).then(function (r) {
+    var lm = r.headers.get('last-modified'); if (!lm) return;
+    var d = new Date(lm);
+    $('ver').textContent = 'v1.0.0 (85) · ' + d.getFullYear() + '.' + String(d.getMonth() + 1).padStart(2, '0') + '.' + String(d.getDate()).padStart(2, '0') + ' 업데이트';
+  }).catch(function () {});
 </script>
 </body>
 </html>
