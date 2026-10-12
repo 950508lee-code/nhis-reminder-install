@@ -15,15 +15,14 @@
   .icon { width:96px; height:96px; border-radius:26px; display:block; margin:0 auto 22px; box-shadow:0 10px 30px rgba(25,31,29,.12); }
   h1 { margin:0; text-align:center; font-size:30px; font-weight:800; letter-spacing:-.03em; line-height:1.2; }
   .sub { margin:8px 0 0; text-align:center; font-size:17px; color:var(--sub); font-weight:500; }
-  .steps { margin:56px 0 0; padding:0; list-style:none; }
-  .steps li { display:flex; align-items:center; gap:16px; padding:20px 0; border-top:1px solid var(--line); font-size:20px; font-weight:600; letter-spacing:-.02em; }
-  .steps li:last-child { border-bottom:1px solid var(--line); }
+  .steps { margin:56px 0 0; }
+  .steps > div { display:flex; align-items:center; gap:16px; padding:20px 0; border-top:1px solid var(--line); font-size:20px; font-weight:600; letter-spacing:-.02em; }
+  .steps > div:last-child { border-bottom:1px solid var(--line); }
   .steps b { flex:none; width:32px; height:32px; border-radius:50%; background:var(--chip); color:var(--ink); font-size:15px; font-weight:800; display:flex; align-items:center; justify-content:center; }
-  .hint { margin:18px 0 0; font-size:15px; color:var(--sub); line-height:1.6; text-align:center; }
   .cta { position:fixed; left:0; right:0; bottom:0; padding:12px 20px calc(16px + env(safe-area-inset-bottom)); background:linear-gradient(180deg, rgba(255,255,255,0), #fff 40%); }
   .cta a { display:flex; align-items:center; justify-content:center; max-width:432px; margin:0 auto; height:60px; border-radius:16px; background:var(--ink); color:#fff; text-decoration:none; font-size:19px; font-weight:700; letter-spacing:-.02em; }
   .cta a:active { opacity:.85; }
-  .ver { text-align:center; font-size:13px; color:var(--sub); margin:10px 0 0; }
+  .ver { text-align:center; font-size:13px; color:var(--sub); margin:28px 0 0; }
 </style>
 </head>
 <body>
@@ -32,14 +31,13 @@
   <h1>NHIS 리마인더</h1>
   <p class="sub">안드로이드용</p>
 
-  <ol class="steps">
-    <li><b>1</b>받은 파일을 누르기</li>
-    <li><b>2</b>"허용" 누르기</li>
-    <li><b>3</b>"설치" 누르기</li>
-  </ol>
-  <p class="hint">이미 설치돼 있으면 새 버전으로 바뀝니다</p>
+  <div class="steps">
+    <div><b>1</b>다운로드한 파일 열기</div>
+    <div><b>2</b>허용 누르기</div>
+    <div><b>3</b>설치 누르기</div>
+  </div>
 
-  <p class="ver">1.0.0 (85) · 2026-10-12</p>
+  <p class="ver">v1.0.0 (85)</p>
 </main>
 
 <div class="cta">
