@@ -18,11 +18,12 @@
   a.btn { display:flex; align-items:center; justify-content:center; gap:14px; background:var(--green); color:#fff; text-decoration:none; font-size:30px; font-weight:800; padding:26px 20px; border-radius:20px; letter-spacing:-.01em; box-shadow:0 4px 0 var(--green-dark); }
   a.btn:active { transform:translateY(3px); box-shadow:0 1px 0 var(--green-dark); }
   a.btn svg { width:36px; height:36px; flex:none; }
-  .after { text-align:center; font-size:19px; color:var(--sub); margin:16px 0 40px; }
+  .steps { margin-top:40px; }
   h2 { font-size:24px; margin:0 0 18px; letter-spacing:-.01em; }
   .step { display:flex; gap:16px; align-items:flex-start; background:#fff; border:1px solid var(--line); border-radius:18px; padding:20px 18px; margin-bottom:14px; }
   .num { flex:none; width:48px; height:48px; border-radius:50%; background:var(--green); color:#fff; font-size:26px; font-weight:800; display:flex; align-items:center; justify-content:center; }
-  .step p { margin:4px 0 0; font-size:22px; line-height:1.5; font-weight:600; }
+  .step { align-items:center; }
+  .step p { margin:0; font-size:26px; line-height:1.4; font-weight:700; }
   .step small { display:block; font-size:18px; font-weight:400; color:var(--sub); margin-top:6px; line-height:1.5; }
   .help { margin-top:36px; background:#fff; border:1px solid var(--line); border-radius:18px; padding:20px 18px; }
   .help p { margin:0 0 10px; font-size:19px; }
@@ -34,30 +35,21 @@
 <main>
   <div class="app">
     <img src="icon.png" alt="" width="84" height="84">
-    <div>
-      <h1>NHIS 리마인더</h1>
-      <p>안드로이드용</p>
-    </div>
+    <div><h1>NHIS 리마인더</h1><p>안드로이드용</p></div>
   </div>
 
   <a class="btn" href="https://wueasumbslbfayumesow.supabase.co/storage/v1/object/public/apk/nhis-reminder-latest.apk" download="nhis-reminder.apk">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m6 11 6 6 6-6"/><path d="M4 20h16"/></svg>
     앱 받기
   </a>
-  <p class="after">이미 설치돼 있어도 그냥 받으세요.<br>새 버전으로 바뀌고 일정은 그대로 남습니다.</p>
 
-  <h2>받은 다음에</h2>
-  <div class="step"><div class="num">1</div><p>화면 위에 뜨는 "다운로드 완료"를 누릅니다.<small>안 보이면 폰의 "내 파일" → "다운로드"에서 nhis-reminder 를 누릅니다.</small></p></div>
-  <div class="step"><div class="num">2</div><p>"허용" 또는 "설정"이 나오면 눌러서 켭니다.<small>처음 한 번만 나옵니다. 스토어 밖에서 받는 앱이라 폰이 확인하는 것입니다.</small></p></div>
-  <div class="step"><div class="num">3</div><p>"설치"를 누르고 잠시 기다리면 끝입니다.</p></div>
-
-  <div class="help">
-    <h2>안 될 때</h2>
-    <p>"설치되지 않았습니다"가 뜨면 기존 앱을 지운 뒤 다시 받으세요.</p>
-    <p>아이폰은 이 페이지로 설치할 수 없습니다. 담당자에게 TestFlight 초대를 요청하세요.</p>
+  <div class="steps">
+    <div class="step"><div class="num">1</div><p>받은 파일을 누르기</p></div>
+    <div class="step"><div class="num">2</div><p>"허용" 누르기</p></div>
+    <div class="step"><div class="num">3</div><p>"설치" 누르기</p></div>
   </div>
 
-  <footer>버전 1.0.0 (85) · 2026-10-12 · 28.5MB<br>국민건강보험공단 인천경기지역본부 · 내부 업무용</footer>
+  <footer>버전 1.0.0 (85) · 2026-10-12</footer>
 </main>
 </body>
 </html>
