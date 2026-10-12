@@ -2,54 +2,48 @@
 <html lang="ko">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex">
+<meta name="theme-color" content="#FFFFFF">
 <title>NHIS 리마인더 설치</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
 <style>
-  :root { --ink:#15302B; --sub:#3F5A52; --line:#D9E2DD; --bg:#F4F7F5; --green:#1C6B57; --green-dark:#145446; }
-  * { box-sizing:border-box; }
-  html { font-size:20px; }
-  body { margin:0; background:var(--bg); color:var(--ink); font-family:-apple-system,"Malgun Gothic","Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif; -webkit-text-size-adjust:100%; line-height:1.55; }
-  main { max-width:560px; margin:0 auto; padding:36px 22px 60px; }
-  .app { display:flex; align-items:center; gap:18px; margin-bottom:28px; }
-  .app img { width:84px; height:84px; border-radius:22px; box-shadow:0 2px 6px rgba(0,0,0,.12); }
-  .app h1 { font-size:34px; line-height:1.15; margin:0; letter-spacing:-.02em; }
-  .app p { margin:6px 0 0; font-size:19px; color:var(--sub); }
-  a.btn { display:flex; align-items:center; justify-content:center; gap:14px; background:var(--green); color:#fff; text-decoration:none; font-size:30px; font-weight:800; padding:26px 20px; border-radius:20px; letter-spacing:-.01em; box-shadow:0 4px 0 var(--green-dark); }
-  a.btn:active { transform:translateY(3px); box-shadow:0 1px 0 var(--green-dark); }
-  a.btn svg { width:36px; height:36px; flex:none; }
-  .steps { margin-top:40px; }
-  h2 { font-size:24px; margin:0 0 18px; letter-spacing:-.01em; }
-  .step { display:flex; gap:16px; align-items:flex-start; background:#fff; border:1px solid var(--line); border-radius:18px; padding:20px 18px; margin-bottom:14px; }
-  .num { flex:none; width:48px; height:48px; border-radius:50%; background:var(--green); color:#fff; font-size:26px; font-weight:800; display:flex; align-items:center; justify-content:center; }
-  .step { align-items:center; }
-  .step p { margin:0; font-size:26px; line-height:1.4; font-weight:700; }
-  .step small { display:block; font-size:18px; font-weight:400; color:var(--sub); margin-top:6px; line-height:1.5; }
-  .help { margin-top:36px; background:#fff; border:1px solid var(--line); border-radius:18px; padding:20px 18px; }
-  .help p { margin:0 0 10px; font-size:19px; }
-  .help p:last-child { margin:0; }
-  footer { margin-top:30px; text-align:center; font-size:16px; color:var(--sub); line-height:1.6; }
+  :root { --ink:#191F1D; --sub:#8B9490; --line:#EEF0EF; --chip:#F2F4F3; }
+  * { box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+  html,body { margin:0; background:#fff; color:var(--ink); font-family:Pretendard,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif; -webkit-text-size-adjust:100%; }
+  main { max-width:480px; margin:0 auto; padding:72px 24px 140px; }
+  .icon { width:96px; height:96px; border-radius:26px; display:block; margin:0 auto 22px; box-shadow:0 10px 30px rgba(25,31,29,.12); }
+  h1 { margin:0; text-align:center; font-size:30px; font-weight:800; letter-spacing:-.03em; line-height:1.2; }
+  .sub { margin:8px 0 0; text-align:center; font-size:17px; color:var(--sub); font-weight:500; }
+  .steps { margin:56px 0 0; padding:0; list-style:none; }
+  .steps li { display:flex; align-items:center; gap:16px; padding:20px 0; border-top:1px solid var(--line); font-size:20px; font-weight:600; letter-spacing:-.02em; }
+  .steps li:last-child { border-bottom:1px solid var(--line); }
+  .steps b { flex:none; width:32px; height:32px; border-radius:50%; background:var(--chip); color:var(--ink); font-size:15px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+  .hint { margin:18px 0 0; font-size:15px; color:var(--sub); line-height:1.6; text-align:center; }
+  .cta { position:fixed; left:0; right:0; bottom:0; padding:12px 20px calc(16px + env(safe-area-inset-bottom)); background:linear-gradient(180deg, rgba(255,255,255,0), #fff 40%); }
+  .cta a { display:flex; align-items:center; justify-content:center; max-width:432px; margin:0 auto; height:60px; border-radius:16px; background:var(--ink); color:#fff; text-decoration:none; font-size:19px; font-weight:700; letter-spacing:-.02em; }
+  .cta a:active { opacity:.85; }
+  .ver { text-align:center; font-size:13px; color:var(--sub); margin:40px 0 0; }
 </style>
 </head>
 <body>
 <main>
-  <div class="app">
-    <img src="icon.png" alt="" width="84" height="84">
-    <div><h1>NHIS 리마인더</h1><p>안드로이드용</p></div>
-  </div>
+  <img class="icon" src="icon.png" alt="">
+  <h1>NHIS 리마인더</h1>
+  <p class="sub">안드로이드용</p>
 
-  <a class="btn" href="https://wueasumbslbfayumesow.supabase.co/storage/v1/object/public/apk/nhis-reminder-latest.apk" download="nhis-reminder.apk">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m6 11 6 6 6-6"/><path d="M4 20h16"/></svg>
-    앱 받기
-  </a>
+  <ol class="steps">
+    <li><b>1</b>받은 파일을 누르기</li>
+    <li><b>2</b>"허용" 누르기</li>
+    <li><b>3</b>"설치" 누르기</li>
+  </ol>
+  <p class="hint">이미 설치돼 있으면 새 버전으로 바뀝니다</p>
 
-  <div class="steps">
-    <div class="step"><div class="num">1</div><p>받은 파일을 누르기</p></div>
-    <div class="step"><div class="num">2</div><p>"허용" 누르기</p></div>
-    <div class="step"><div class="num">3</div><p>"설치" 누르기</p></div>
-  </div>
-
-  <footer>버전 1.0.0 (85) · 2026-10-12</footer>
+  <p class="ver">1.0.0 (85) · 2026-10-12</p>
 </main>
+
+<div class="cta">
+  <a href="https://wueasumbslbfayumesow.supabase.co/storage/v1/object/public/apk/nhis-reminder-latest.apk" download="nhis-reminder.apk">앱 받기</a>
+</div>
 </body>
 </html>
